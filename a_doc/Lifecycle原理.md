@@ -1,5 +1,10 @@
 
 https://mp.weixin.qq.com/s/SCNWCz9ZEIOwio9v-Tx0fA
+https://blog.csdn.net/petterp/article/details/106771203
+https://mp.weixin.qq.com/s/VBMDIE0QHXQAMuIjon-Fjg
+https://guolin.blog.csdn.net/article/details/109787732
+
+https://developer.android.google.cn/training/dependency-injection/manual
 
 ## Lifecycle的使用
 
