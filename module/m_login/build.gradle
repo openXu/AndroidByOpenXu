@@ -1,0 +1,7 @@
+apply from: "../module.gradle"
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+//    implementation project(':module:module_common')
+}

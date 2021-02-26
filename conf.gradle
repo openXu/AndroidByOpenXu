@@ -1,0 +1,91 @@
+ext {
+
+
+    dependencies = [
+            //===library_core=================================
+//            "lifecycle-compiler"      : "androidx.lifecycle:lifecycle-compiler:2.0.0",
+            "multidex"            : 'com.android.support:multidex:1.+',
+            //RX
+            "rxjava"              : "io.reactivex.rxjava3:rxjava:3.0.0",
+            "rxandroid"           : "io.reactivex.rxjava3:rxandroid:3.0.0",
+//            "rxjava"              : "io.reactivex.rxjava2:rxjava:2.1.0",
+//            "rxandroid"           : "io.reactivex.rxjava2:rxandroid:2.0.1",
+
+            "AutoDispose"         : "com.uber.autodispose:autodispose-android-archcomponents:1.1.0",
+            //权限
+            "AndPermission"       : "com.yanzhenjie.permission:x:2.0.1",
+            //SmartRefreshLayout 刷新1.1.0 androidx 版本
+            "SmartRefreshLayout"  : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-4",
+            "SmartRefreshHeader"  : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-4",
+            //Dialog
+            "material-dialogs"    : "com.afollestad.material-dialogs:core:0.9.6.0",
+            //===library_atta=================================
+            //glide图片加载
+            "glide"               : "com.github.bumptech.glide:glide:4.8.0",
+//            "glide"               : "com.github.bumptech.glide:glide:4.9.0",   //library_takephoto中使用到glide过时的方法
+//            "glide-compiler"      : "com.github.bumptech.glide:compiler:4.9.0",
+            "picasso"             : "com.squareup.picasso:picasso:2.5.2",
+            //===library_base=================================
+            //网络框架
+
+            //EventBus事件发布和订阅框架
+//            "eventbus"            : "org.greenrobot:eventbus:3.0.0",
+            "rxbus"               : 'com.hwangjr.rxbus:rxbus:1.0.6',
+            "livedatabus"               : 'com.jeremyliao:live-event-bus-x:1.7.2',
+            //数据库greenDao
+            "greendao"            : "org.greenrobot:greendao:3.2.2",
+
+            //CustomActivityOnCrash
+//        "crash"  : "cat.ereza:customactivityoncrash:2.2.0",
+            //AndroidAutoSize
+            "autosize"            : "me.jessyan:autosize:1.1.2",
+            //图片压缩
+            "Luban"               : "top.zibin:Luban:1.1.8",
+            //二维码
+            "zxing"          : "com.google.zxing:core:3.3.0",
+
+            //Bugly https://bugly.qq.com/
+            "buglySdk"          : "com.tencent.bugly:crashreport:2.8.6",//其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+            "buglyNdk"          : "com.tencent.bugly:nativecrashreport:3.6.0.1",//其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    ]
+
+    /**通用gradle方法*/
+    /*android基础配置*/
+    setAndroidConfig = {
+        extension ->  //闭包参数extension相当于android对象
+            extension.compileSdkVersion 28
+            extension.buildToolsVersion '28.0.3'
+            extension.defaultConfig {
+                minSdkVersion 21
+                targetSdkVersion 30
+                versionCode 1
+                versionName '1.0.0'
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        includeCompileClasspath = true
+                    }
+                }
+                multiDexEnabled true
+//                //阿里路由框架配置
+//                javaCompileOptions {
+//                    annotationProcessorOptions {
+//                        arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+//                    }
+//                }
+            }
+            extension.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+            //开启Data Binding
+            extension.dataBinding {
+                enabled = true
+            }
+            extension.lintOptions {
+                abortOnError false
+            }
+            //统一资源前缀，规范资源引用 module_xxx
+//    extension.resourcePrefix project.getName()+"_"
+    }
+
+}

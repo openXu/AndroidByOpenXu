@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    rootProject.ext.setAndroidConfig android
+}
+
+dependencies {
+
+    api project(':library:lib_core')    //核心组件
+}

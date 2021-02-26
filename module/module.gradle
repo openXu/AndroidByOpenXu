@@ -1,0 +1,21 @@
+/*模块通用gradle配置*/
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    rootProject.ext.setAndroidConfig android
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+}
+
+dependencies {
+    //依赖基础库
+    implementation project(':library:lib_base')
+    //组件中依赖阿里路由编译框架
+//    kapt rootProject.ext.dependencies["arouter-compiler"]
+}
+

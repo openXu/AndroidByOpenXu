@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="login_login">登录</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="go_register">去注册</string>
+    <string name="wanandroid">WANANDROID</string>
+    <string name="register">注册</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="account_can_not_be_empty">账号不能为空</string>
+    <string name="password_can_not_be_empty">密码不能为空</string>
+    <string name="account_length_over_three">账号不能少于3位</string>
+    <string name="password_length_over_six">密码不能少于6位</string>
+    <string name="confirm_password_can_not_be_empty">确认密码不能为空</string>
+    <string name="two_password_are_inconsistent">两次输入的密码不一致</string>
+    <string name="logging_in">正在登陆&#8230;</string>
+    <string name="registerring">正在注册&#8230;</string>
+
+
+</resources>
