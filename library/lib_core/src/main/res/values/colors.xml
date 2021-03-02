@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorAccent">#319A5A</color>
+    <!--主题色：一般用于标题-->
+    <color name="colorPrimary">#FFFFFF</color>
+    <!-- 状态栏颜色 -->
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <!--colorAccent: 辅助色（或强调色）：一般用于某些与主题呼应的图片-->
+    <color name="colorAccent">#5da3f4</color>
+    <!--Window的背景色-->
+    <color name="windowBackground">#F2F7F9</color>
+    <!--主要的文字颜色，一般TextView的文字都是这个颜色-->
+    <color name="textColorPrimary">#1B1B1D</color>
+    <!--辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示-->
+    <color name="textColorSecondary">#6B7178</color>
+    <color name="textColorThird">#9297A2</color>
+
+    <color name="colorRipple">#E2E2E2</color>   <!--涟漪-->
+    <color name="colorBadge">#FC1603</color>
+
 
     <!--FToast-->
     <color name="toast_defaultTextColor">#FFFFFF</color> <!--Toast默认文字颜色-->
@@ -11,23 +27,6 @@
     <color name="toast_normalColor">#353A3E</color>
 
     <!--****↓↓↓↓↓↓↓↓↓↓↓↓app整体颜色规范↓↓↓↓↓↓↓↓↓↓↓↓****-->
-
-    <!--整个app主色调，用于title_bar等重要的颜色提醒-->
-    <color name="title_bar_color">#ffffff</color>
-    <!--通用背景色-->
-    <color name="main_style">#F2F7F9</color>
-    <!--白色内容区域按下时的背景色-->
-    <color name="white_press_bg">#16000000</color>
-    <!--线条色-->
-    <color name="line_bg_color">#F2F7F9</color>
-    <color name="chart_line_color">#e6e6e6</color>
-
-    <!--字体颜色-->
-    <color name="text_color_black">#333333</color>
-    <color name="text_color_def">#5F5F5F</color>
-    <color name="text_color_light_gray">#999999</color>
-    <color name="edit_hint_color">#CCCCCC</color>
-
     <!--辅助色-->
     <color name="color_white">#ffffff</color>
     <color name="color_red">#d94630</color>

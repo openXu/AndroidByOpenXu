@@ -28,6 +28,10 @@ android {
 dependencies {
 
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    //协程 https://github.com/hltj/kotlinx.coroutines-cn/blob/master/README.md#using-in-your-projects
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+
+
     api "androidx.core:core-ktx:1.2.0"
     //appcompat依赖了androidx.fragment，而androidx.fragment下依赖了ViewModel和 LiveData，LiveData内部又依赖了Lifecycle。
     api "androidx.appcompat:appcompat:1.2.0"
@@ -35,7 +39,6 @@ dependencies {
     api "androidx.fragment:fragment-ktx:1.3.0"
     //Google AAC(Android Architecture Components)android架构组件
 //    api "androidx.lifecycle:lifecycle-extensions:2.2.0"
-
     def lifecycle_version = "2.2.0"
     api "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
@@ -53,11 +56,16 @@ dependencies {
 
 //    annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
     //================开源库============
-
+    def retrofitVersion = "2.9.0"
     api "com.squareup.okhttp3:logging-interceptor:3.4.1"
-    api "com.squareup.retrofit2:converter-gson:2.3.0"
-    api "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
-    api "com.squareup.retrofit2:retrofit:2.5.0"
+    api "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    api "com.squareup.retrofit2:converter-moshi:${retrofitVersion}"
+    api "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    //    https://github.com/square/moshi/
+    api "com.squareup.moshi:moshi:1.11.0"
+//    api "com.squareup.moshi:moshi-kotlin:1.11.0"
+
     //ARouter路由
     api "com.alibaba:arouter-api:1.4.1"
     api "com.alibaba:arouter-compiler:1.2.2"

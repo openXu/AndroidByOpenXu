@@ -10,7 +10,7 @@ import com.openxu.core.base.BaseViewModel
  */
 class LoginViewModel : BaseViewModel(){
     fun login(account: String, password: String) {
-        launch(
+       /* launch(
             block = {
                 submitting.value = true
                 val userInfo = loginRepository.login(account, password)
@@ -23,6 +23,6 @@ class LoginViewModel : BaseViewModel(){
                 submitting.value = false
                 loginResult.value = false
             }
-        )
+        )*/
     }
 }

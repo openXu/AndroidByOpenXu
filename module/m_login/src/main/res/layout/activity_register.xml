@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <include
-            android:id="@+id/title"
+            android:id="@+id/titleLayout"
             layout="@layout/title_layout"
-            bind:iconLeft="@{@drawable/ic_arrow_back_black_24dp}"
-            bind:iconRight="@{null}"
-            bind:titleText="@{@string/login}"/>
+            app:iconLeft="@{@drawable/ic_arrow_back_black_24dp}"
+            app:iconRight="@{null}"
+            app:titleText="@{@string/register}"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +29,7 @@
                 android:layout_height="72dp"
                 android:layout_marginTop="48dp"
                 android:src="@drawable/ic_android"
-                bind:tint="@color/textColorPrimary" />
+                app:tint="@color/textColorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,8 +68,8 @@
                 android:layout_marginTop="16dp"
                 android:hint="@string/hint_password"
                 android:textColorHint="@color/textColorThird"
-                bind:passwordToggleEnabled="true"
-                bind:passwordToggleTint="@color/textColorPrimary">
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/textColorPrimary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editPassword"
@@ -82,17 +83,36 @@
                     android:textColorHighlight="@color/textColorPrimary"
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
-            <Button
-                android:id="@+id/btnLogin"
-                style="@style/btn_style"
-                android:layout_marginTop="48dp"
-                android:background="@drawable/lib_core_shape_btn_green"
-                android:text="@string/register"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputConfirmPssword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_confirm_password"
+                android:textColorHint="@color/textColorThird"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/textColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editConfirmPssword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionGo"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorHighlight="@color/textColorPrimary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/btnRegister"
                 style="@style/btn_style"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/lib_core_shape_btn_gray"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/lib_core_shape_btn_green"
                 android:text="@string/register"/>
         </LinearLayout>
     </LinearLayout>

@@ -92,20 +92,6 @@ public interface ApiService {
 
 
 
-    // https://www.wanandroid.com/user/login
-    @FormUrlEncoded
-    @POST("user/login")
-    suspend fun login(
-            @Field("username")username: String,
-            @Field("password")password: String
-    ): ApiResult<UserInfo>
-
-
-
-
-
-
-
 
 
 

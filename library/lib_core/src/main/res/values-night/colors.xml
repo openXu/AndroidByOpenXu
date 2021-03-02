@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--主题色：一般用于标题-->
+    <color name="colorPrimary">#303030</color>
+    <!-- 状态栏颜色 -->
+    <color name="colorPrimaryDark">#303030</color>
+    <!--colorAccent: 辅助色（或强调色）：一般用于某些与主题呼应的图片-->
+    <color name="colorAccent">#B1B1B1</color>
+    <!--Window的背景色-->
+    <color name="windowBackground">#F2F7F9</color>
+    <!--主要的文字颜色，一般TextView的文字都是这个颜色-->
+    <color name="textColorPrimary">#B1B1B1</color>
+    <!--辅助的文字颜色，一般比textColorPrimary的颜色弱一点，用于一些弱化的表示-->
+    <color name="textColorSecondary">#7C7B7B</color>
+    <color name="textColorThird">#5E5E5E</color>
+
+
+    <color name="colorRipple">#3F3F3F</color>
+    <color name="colorBadge">#F44336</color>
+</resources>

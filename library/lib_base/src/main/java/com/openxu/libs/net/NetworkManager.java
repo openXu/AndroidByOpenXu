@@ -4,7 +4,6 @@ import androidx.annotation.IntDef;
 
 import com.openxu.libs.net.converter.FzyGsonConverterFactory;
 import com.openxu.libs.net.interceptor.BaseInterceptor;
-import com.openxu.libs.net.interceptor.LoggerInterceptor;
 import com.openxu.libs.net.util.TimeOutDns;
 
 import java.lang.annotation.Retention;
