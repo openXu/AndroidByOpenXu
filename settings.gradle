@@ -1,5 +1,6 @@
 rootProject.name = "AndroidByOpenXu"
 include ':library:lib_base',
         ':library:lib_core'
-include ':module:m_login'
+include ':module:m_login',
+        ":module:m_system"
 include ':app'

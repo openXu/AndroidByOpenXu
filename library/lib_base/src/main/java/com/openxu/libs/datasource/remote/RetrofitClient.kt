@@ -36,7 +36,6 @@ object RetrofitClient {
     //        httpGet.setProtocolVersion(HttpVersion.HTTP_1_0);
 //        httpGetheader.put(HTTP.CONN_DIRECTIVE,HTTP.CONN_CLOSE);
 
-
     /**Retrofit*/
     private val retrofit = Retrofit.Builder()
         .client(okHttpClient)

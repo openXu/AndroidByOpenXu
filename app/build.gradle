@@ -33,5 +33,6 @@ android {
 dependencies {
     implementation project(':library:lib_base')
     implementation project(':module:m_login')
+    implementation project(':module:m_system')
 
 }

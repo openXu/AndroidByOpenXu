@@ -3,6 +3,7 @@ package com.openxu.login
 import android.content.Intent
 import android.graphics.Color
 import com.openxu.core.base.BaseActivity
+import com.openxu.core.base.BaseVmActivity
 import com.openxu.login.databinding.ActivityLoginBinding
 import com.openxu.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_login.*
  * class: LoginActivity
  * Description:
  */
-class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
+class LoginActivity : BaseVmActivity<ActivityLoginBinding, LoginViewModel>() {
 
 
     override fun layoutRes() = R.layout.activity_login

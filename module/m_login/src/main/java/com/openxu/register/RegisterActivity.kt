@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
 import com.openxu.core.base.BaseActivity
+import com.openxu.core.base.BaseVmActivity
 import com.openxu.core.utils.FLog
 import com.openxu.login.R
 import com.openxu.login.databinding.ActivityRegisterBinding
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_register.*
  * class: RegisterActivity
  * Description:
  */
-class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel>() {
+class RegisterActivity : BaseVmActivity<ActivityRegisterBinding, RegisterViewModel>() {
 
 
     override fun layoutRes() = R.layout.activity_register

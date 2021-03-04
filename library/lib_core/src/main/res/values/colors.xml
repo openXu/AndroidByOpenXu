@@ -14,6 +14,7 @@
     <color name="textColorSecondary">#6B7178</color>
     <color name="textColorThird">#9297A2</color>
 
+    <color name="bgColorPrimary">#F2F7F9</color> <!--主要背景色，比如item-->
     <color name="colorRipple">#E2E2E2</color>   <!--涟漪-->
     <color name="colorBadge">#FC1603</color>
 
