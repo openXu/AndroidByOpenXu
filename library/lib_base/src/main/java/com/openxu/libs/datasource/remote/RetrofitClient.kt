@@ -5,6 +5,7 @@ import com.openxu.libs.net.converter.FzyGsonConverterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -41,6 +42,7 @@ object RetrofitClient {
         .client(okHttpClient)
         .baseUrl(ApiService.BASE_URL)
 //        .addConverterFactory(MoshiConverterFactory.create(MoshiHelper.moshi))
+        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .addConverterFactory(FzyGsonConverterFactory.create())
         .build()
 

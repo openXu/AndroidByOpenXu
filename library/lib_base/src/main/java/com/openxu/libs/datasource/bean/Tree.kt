@@ -32,7 +32,7 @@ package com.openxu.libs.datasource.bean
  */
 data class Tree(
     val courseId: Int,
-    val id: Int,
+    var id: Int?,
     val name: String,
     val order: Int,
     val parentChapterId: Int,

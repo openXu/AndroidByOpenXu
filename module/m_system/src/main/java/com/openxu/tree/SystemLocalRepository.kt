@@ -4,7 +4,7 @@ import com.openxu.libs.datasource.bean.Tree
 
 
 class SystemLocalRepository : ISystemRepository {
-    override fun getArticleTree(responseBack: (result:MutableList<Tree>?) -> Unit) {
+    override fun getTree(responseBack: (result:MutableList<Tree>?) -> Unit) {
         responseBack(null)
     }
 

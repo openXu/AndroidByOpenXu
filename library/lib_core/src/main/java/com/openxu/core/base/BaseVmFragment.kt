@@ -65,4 +65,5 @@ abstract class BaseVmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseFra
         mViewModel = ViewModelProvider(this).get(modelClass) as VM
     }
 
+
 }

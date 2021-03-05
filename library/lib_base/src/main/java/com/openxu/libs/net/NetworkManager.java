@@ -16,7 +16,7 @@ import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 
 /**
  * Author: openXu
@@ -87,7 +87,7 @@ public class NetworkManager {
         retrofit = new Retrofit.Builder()
                 .client(client)
                 .baseUrl("https://www.wanandroid.com")
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(FzyGsonConverterFactory.create())
                 .build();
         apiService = retrofit.create(ApiService.class);

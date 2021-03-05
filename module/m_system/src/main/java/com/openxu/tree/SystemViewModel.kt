@@ -2,14 +2,25 @@ package com.openxu.register
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.openxu.core.base.BaseViewModel
 import com.openxu.core.utils.FLog
 import com.openxu.core.utils.toasty.FToast
+import com.openxu.libs.datasource.bean.Article
+import com.openxu.libs.datasource.bean.Pagination
 import com.openxu.libs.datasource.bean.Tree
 import com.openxu.libs.datasource.remote.ApiException
+import com.openxu.libs.datasource.remote.ApiResult
+import com.openxu.libs.datasource.remote.RetrofitClient
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonEncodingException
+import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.HttpException
+import retrofit2.Response
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -22,22 +33,63 @@ import javax.net.ssl.SSLHandshakeException
  * Description:
  */
 class SystemViewModel : BaseViewModel(){
-    private val remoteRepository : ISystemRepository by lazy { SystemRemoteRepository() }
+    private val remoteRepository : SystemRemoteRepository by lazy { SystemRemoteRepository() }
     private val localRepository : ISystemRepository by lazy { SystemLocalRepository() }
 
     val treeList = MutableLiveData<List<Tree>>()
+    val page = MutableLiveData<Pagination<Article>>()
 
-    fun getArticleTree() {
+    fun getTree() {
         //这里怎么写？？
         //先从本地拿，没有再从服务器去
         //本地
 //        localRepository.getArticleTree()
+//        remoteRepository.getArticleTree{
+//            treeList.value = it
+//        }
 
-        remoteRepository.getArticleTree{
-            treeList.value = it
-        }
 
     }
+
+
+    fun getArticleList() {
+//        remoteRepository.getArticleList(){
+//            page.value = it
+//        }
+//        remoteRepository.getArticleListByRx(){
+//            page.value = it
+//        }
+        /*
+
+        //同步调用接口1
+        val response1 : Response<ApiResult<MutableList<Tree>>> = RetrofitClient.apiService.getTree().execute()
+        val cid = response1.body()?.data?.get(0)?.id
+        if(cid!=null){
+            //同步调用接口2
+            val response2 : Response<ApiResult<Pagination<Article>>> = RetrofitClient.apiService.getArticleList(0, cid).execute()
+            page.value = response2.body()?.data!!
+        }
+        */
+        viewModelScope.launch {
+            FLog.v("1开启协程：${Thread.currentThread()}")
+            val tree : ApiResult<MutableList<Tree>> = RetrofitClient.apiService.getTreeByCoroutines()
+            FLog.v("2请求文章树成功：${tree.data}")
+            val cid = tree?.data?.get(0)?.id
+            if(cid!=null){
+                FLog.v("3开始请求第二个接口：${Thread.currentThread()}")
+                val pageResult : ApiResult<Pagination<Article>> = RetrofitClient.apiService.getArticleListByCoroutines(0, cid)
+                FLog.v("4请求文章列表成功：${pageResult.data}")
+                page.value = pageResult.data!!
+            }
+
+        }
+    }
+
+
+
+
+
+
 
     /*fun register(account: String, password: String, confirmPassword: String) {
         GlobalScope.launch(Dispatchers.IO) {
