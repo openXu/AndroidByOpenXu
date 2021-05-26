@@ -5,9 +5,11 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.openxu.core.common.dialog.ProgressDialogFragment
+import com.openxu.core.utils.toasty.FToast
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -18,16 +20,24 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class BaseVmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseActivity<V>() {
 
-    protected lateinit var mViewModel: VM
+    protected lateinit var viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
+        baseObserve()
         observe()
         initView()
         initData()
     }
-
+    private fun baseObserve(){
+        viewModel.dialog.observe(this, Observer<Boolean> {
+            if(it) {showProgressDialog(null)} else{ dismissProgressDialog()}
+        })
+        viewModel.wToast.observe(this, Observer<String> {
+            FToast.warning(it)
+        })
+    }
     open fun observe() {
         // Override if need
     }
@@ -50,7 +60,7 @@ abstract class BaseVmActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseAct
             BaseViewModel::class.java
         }
         //通过ViewModelProviders，传入生命周期对象，获取ViewModel实例
-        mViewModel = ViewModelProvider(this).get(modelClass) as VM
+        viewModel = ViewModelProvider(this).get(modelClass) as VM
     }
 
 }

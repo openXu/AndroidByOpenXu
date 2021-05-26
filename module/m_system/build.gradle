@@ -1,6 +1,0 @@
-apply from: "../module.gradle"
-
-dependencies {
-
-//    implementation project(':module:module_common')
-}

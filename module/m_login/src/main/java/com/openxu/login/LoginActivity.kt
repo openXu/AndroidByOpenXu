@@ -30,7 +30,7 @@ class LoginActivity : BaseVmActivity<ActivityLoginBinding, LoginViewModel>() {
             when {
                 account.isEmpty() -> inputAccount.error = getString(R.string.account_can_not_be_empty)
                 pwd.isEmpty() -> inputPassword.error = getString(R.string.password_can_not_be_empty)
-                else -> mViewModel.login(account, pwd)
+                else -> viewModel.login(account, pwd)
             }
         }
 

@@ -31,7 +31,7 @@ class RegisterActivity : BaseVmActivity<ActivityRegisterBinding, RegisterViewMod
         editConfirmPssword.setText("123456")
 
         //layout中不可跨模块使用include，编译报错：Unresolved reference: xxx
-        mBinding.titleLayout.ivBack.setOnClickListener { finish() }
+//        binding.titleLayout.ivBack.setOnClickListener { finish() }
 
         editConfirmPssword.setOnEditorActionListener{view, actionId, event->
             when(actionId){
@@ -60,7 +60,7 @@ class RegisterActivity : BaseVmActivity<ActivityRegisterBinding, RegisterViewMod
                     getString(R.string.confirm_password_can_not_be_empty)
                 password != confirmPassword -> inputConfirmPssword.error =
                     getString(R.string.two_password_are_inconsistent)
-                else -> mViewModel.register(account, password, confirmPassword)
+                else -> viewModel.register(account, password, confirmPassword)
             }
         }
 
@@ -68,10 +68,10 @@ class RegisterActivity : BaseVmActivity<ActivityRegisterBinding, RegisterViewMod
 
     override fun observe() {
         super.observe()
-        mViewModel.submitting.observe(this, Observer {
-            if (it) showProgressDialog(R.string.registerring) else dismissProgressDialog()
+        viewModel.submitting.observe(this, Observer {
+            if (it) showProgressDialog("正在注册") else dismissProgressDialog()
         })
-        mViewModel.registerResult.observe(this@RegisterActivity, Observer {
+        viewModel.registerResult.observe(this@RegisterActivity, Observer {
             if (it) {
 
                 FLog.v("》》》》》》》》》》》》》》》》》注册成功")

@@ -6,9 +6,11 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.openxu.core.common.dialog.ProgressDialogFragment
+import com.openxu.core.utils.toasty.FToast
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -19,15 +21,24 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class BaseVmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseFragment<V>() {
 
-    protected lateinit var mViewModel: VM
+    protected lateinit var viewModel: VM
     private var lazyLoaded = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
+        baseObserve()
         observe()
         initView()
         initData()
+    }
+    private fun baseObserve(){
+        viewModel.dialog.observe(viewLifecycleOwner, Observer<Boolean> {
+            if(it) {showProgressDialog(null)} else{ dismissProgressDialog()}
+        })
+        viewModel.wToast.observe(viewLifecycleOwner, Observer<String> {
+            FToast.warning(it)
+        })
     }
     override fun onResume() {
         super.onResume()
@@ -62,8 +73,9 @@ abstract class BaseVmFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseFra
             BaseViewModel::class.java
         }
         //通过ViewModelProviders，传入生命周期对象，获取ViewModel实例
-        mViewModel = ViewModelProvider(this).get(modelClass) as VM
+        viewModel = ViewModelProvider(this).get(modelClass) as VM
     }
+
 
 
 }

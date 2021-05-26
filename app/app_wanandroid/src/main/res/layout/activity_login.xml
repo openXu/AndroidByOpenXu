@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/title"
+            layout="@layout/title_layout"
+            bind:iconLeft="@{@drawable/ic_arrow_back_black_24dp}"
+            bind:iconRight="@{null}"
+            bind:titleText="@{@string/login}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/ic_android"
+                bind:tint="@color/textColorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:text="@string/app_name"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:hint="@string/hint_account">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorHighlight="@color/textColorPrimary"
+                    android:textColorHint="@color/textColorThird"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_password"
+                android:textColorHint="@color/textColorThird"
+                bind:passwordToggleEnabled="true"
+                bind:passwordToggleTint="@color/textColorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorHighlight="@color/textColorPrimary"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/btn_style"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/lib_core_shape_btn_green"
+                android:text="@string/register"/>
+            <Button
+                android:id="@+id/btnRegister"
+                style="@style/btn_style"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/lib_core_shape_btn_gray"
+                android:text="@string/register"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
+

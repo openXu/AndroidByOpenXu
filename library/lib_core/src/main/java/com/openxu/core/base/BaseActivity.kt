@@ -18,7 +18,7 @@ import java.lang.reflect.ParameterizedType
  */
 abstract class BaseActivity<V : ViewDataBinding> : AppCompatActivity() {
 
-    protected lateinit var mBinding: V
+    protected lateinit var binding: V
     private lateinit var progressDialogFragment: ProgressDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +29,13 @@ abstract class BaseActivity<V : ViewDataBinding> : AppCompatActivity() {
     abstract fun layoutRes(): Int
 
     private fun initDataBinding(){
-        mBinding = DataBindingUtil.setContentView(this, layoutRes())
+        binding = DataBindingUtil.setContentView(this, layoutRes())
     }
 
     /**
      * 显示加载(转圈)对话框
      */
-    fun showProgressDialog(@StringRes message: Int) {
+    fun showProgressDialog(message: String?) {
         if (!this::progressDialogFragment.isInitialized) {
             progressDialogFragment = ProgressDialogFragment()
         }
@@ -52,5 +52,6 @@ abstract class BaseActivity<V : ViewDataBinding> : AppCompatActivity() {
             progressDialogFragment.dismissAllowingStateLoss()
         }
     }
+
 
 }

@@ -13,12 +13,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/app_wanandroid" />
+            <option value="$PROJECT_DIR$/app/runable" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/lib_base" />
             <option value="$PROJECT_DIR$/library/lib_core" />
-            <option value="$PROJECT_DIR$/module" />
-            <option value="$PROJECT_DIR$/module/m_login" />
-            <option value="$PROJECT_DIR$/module/m_system" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

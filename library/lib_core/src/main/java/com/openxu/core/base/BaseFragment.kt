@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.openxu.core.common.dialog.ProgressDialogFragment
 
 
 /**
@@ -17,7 +19,7 @@ import androidx.fragment.app.Fragment
  */
 open class BaseFragment<V : ViewDataBinding> : Fragment() {
 
-    protected lateinit var binding: V
+    lateinit var binding: V
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,5 +35,19 @@ open class BaseFragment<V : ViewDataBinding> : Fragment() {
     }
 
     open fun layoutRes() = 0
+
+    /**显示加载(转圈)对话框*/
+    open fun showProgressDialog(message: String?) {
+        if(activity is BaseActivity<*>){
+            (activity as BaseActivity<*>).showProgressDialog(message)
+        }
+    }
+
+    /**隐藏加载(转圈)对话框*/
+    open fun dismissProgressDialog() {
+        if(activity is BaseActivity<*>){
+            (activity as BaseActivity<*>).dismissProgressDialog()
+        }
+    }
 
 }

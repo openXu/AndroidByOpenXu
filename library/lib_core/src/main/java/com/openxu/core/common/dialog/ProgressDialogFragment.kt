@@ -30,7 +30,7 @@ import java.io.File
  */
 class ProgressDialogFragment : DialogFragment() {
 
-    private var messageResId: Int? = null
+    private var message: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,15 +42,16 @@ class ProgressDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tvMessage.text = messageResId?.let { getString(it) } ?: "loading..."
+//        tvMessage.text = message?.let { getString(it) } ?: "loading..."
+        tvMessage.text = message?:"loading..."
     }
 
     fun show(
         fragmentManager: FragmentManager,
-        @StringRes messageResId: Int,
+        message: String?,
         isCancelable: Boolean = false
     ) {
-        this.messageResId = messageResId
+        this.message = message
         this.isCancelable = isCancelable
         try {
             show(fragmentManager, "progressDialogFragment")

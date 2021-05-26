@@ -10,4 +10,5 @@ android {
 dependencies {
 
     api project(':library:lib_core')    //核心组件
+//    api project(':library:lib_wanandroid')
 }
